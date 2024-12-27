@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodBox</title>
+    <link rel="icon" type="image/x-icon" href="img/Logo.svg">
+    <link rel="stylesheet" href="output.css">
+
+    <style>
+        .scrolled {
+            background-color: white;
+        }
+        ul li ul.dropdown {
+            position: absolute;
+            z-index: 999;
+            display: none;
+        }
+
+        ul li:hover ul.dropdown {
+            display: block;
+        }
+
+    </style>
+</head>
+<body class="text-black font-Poppins">
+
+    <header class="mx-auto scrolled fixed top-0 left-0 right-0 transition-colors z-50 bg-inherit drop-shadow-lg">
+        <nav class="relative flex justify-between items-center w-full xl:w-[1183px] mx-auto py-4">
+            <div>
+                <a href="index.html"><img class="cursor-pointer" src="img/Logo.svg" alt="logo"></a>
+        </div>
+            <div class="nav-links bg-white md:bg-inherit duration-500 md:static  absolute md:min-h-fit min-h-[60vh] left-0 top-[-600px] md:w-auto w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[32px] gap-8">
+                    <li class="relative">
+                        <a class="text-body_copy text-center text-black btn btn-center hover:text-primary" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="text-body_copy text-center text-black btn btn-center hover:text-primary" href="product.html">Menu</a>
+                    </li>
+                    <li>
+                        <a class="text-body_copy text-center text-black btn btn-center hover:text-primary" href="#">Services</a>
+                    </li>
+                    <li>
+                        <a class="text-body_copy text-center text-black btn btn-center hover:text-primary" href="#">Delivery</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                
+                <!-- <button id="search" onclick="toggleVisibility()"><img src="img/search.png" alt="search"></button>
+                <div id="content" class="hidden">
+                    <div id="search-container">
+                        <input class="outline-none border-none" type="search" id="search-input" placeholder="Search product name here..."/>
+                    </div>
+                </div> -->
+                
+                <a href="product.html"><img src="img/cart.png" alt="cart"></a>
+                <button onclick="onToggleMenu(this)" name="menu" class="cursor-pointer md:hidden">
+                    <img src="img/menu.png" alt="menu">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    
+    
+        
+        <div class="w-full mx-auto flex justify-center items-center pt-[124px] lg:pt-[96px] bg-gradient-to-b px-4 md:px-0 from-red-200 to-white">
+            <!-- Hero Section -->
+            <section class="flex justify-center lg:justify-between flex-col lg:flex-row items-center w-full xl:w-[1183px]">
+
+            <div class="flex justify-center lg:justify-start w-full flex-col gap-[30px]">
+
+            <div class="flex justify-center items-center lg:justify-start lg:items-start">    
+            <div class="text-small_copy lg:text-start text-center w-fit bg-light rounded-full text-primary px-[32px] py-[16px]">Feast Your Senses</div>
+            </div>
+            <div class=" text-h3 md:text-h2 xl:text-h1 lg:text-start text-center text-black font-bold xl:leading-[80px]">Bon Appetit: <br>
+                <span class="text-primary font-bold xl:leading-[80px]">Explore Culinary</span>
+                <br>
+                Creations
+            </div>
+            <div class="flex justify-center items-center lg:justify-start lg:items-start">
+            <div class="text-body_copy text-black w-[429px] lg:text-start text-center">Your ultimate destination for all things food! Explore our extensive collection of mouthwatering recipes.</div>
+            </div>
+            <div class="flex flex-row  justify-center lg:justify-start gap-[33px] items-center">
+            <button onclick="window.location.href='product.html'" class="flex justify-between items-center flex-row gap-[10px] text-small_copy w-fit bg-primary font-bold rounded-full text-white px-[16px] py-[16px] lg:px-[32px] lg:py-[16px] group transition-all duration-200 hover:shadow-lg hover:shadow-primary/70 hover:scale-105 ease-in-out">
+                ORDER NOW <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24 " class="hidden md:block"><path fill="currentColor" d="M4 11.25a.75.75 0 0 0 0 1.5h9.25V18a.75.75 0 0 0 1.28.53l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.28.53v5.25z"/></svg>
+            </button>
+
+            <button class="flex justify-between items-center flex-row gap-[10px] text-small_copy w-fit bg-white font-bold rounded-full text-black px-[16px] py-[16px] lg:px-[32px] lg:py-[16px] group transition-all duration-200 hover:shadow-lg hover:shadow-black/80 hover:scale-105 ease-in-out">
+                Watch Demo <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" class="text-primary hidden md:block"><path fill="none" d="M11 23a1 1 0 0 1-1-1V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788l-12 6A1.001 1.001 0 0 1 11 23"/><path fill="currentColor" d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m7.447 14.895l-12 6A1 1 0 0 1 10 22V10a1 1 0 0 1 1.447-.894l12 6a1 1 0 0 1 0 1.788"/></svg>
+            </button>
+            </div>
+
+            </div>
+
+            <div class="block lg:hidden">
+                <div class="w-full h-[64px] bg-light"></div>
+            </div>
+
+            <div class="w-full flex justify-center items-center lg:justify-start lg:items-start">
+                <img class="relative w-[580.66px]" src="img/girl-with-icon.png" alt="girl">
+            </div>
+
+            </section>
+
+        </div>
+
+        <div class="w-full mx-auto flex justify-center items-center flex-col pt-[64px] lg:pt-[96px] px-4 md:px-0">
+            <!-- Hero Section -->
+            <section class="flex flex-col justify-center gap-[64px] items-center w-full xl:w-[1183px]">
+                <div class=" flex justify-center items-center">
+                    <div class="text-h3 lg:text-h2 text-black font-bold">Top Categories</div>
+                </div>
+
+                <div class="flex justify-center flex-wrap items-center flex-row gap-[29px]">
+                    
+                    <div class="flex justify-center flex-col rounded-[32px] group border-light border hover:border-none bg-white items-center gap-[48px] px-[81px] py-[96px] transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/70 hover:scale-105 ease-in-out">
+                        <div class="w-[104px] h-[104px] flex justify-center items-center transition-colors bg-light group-hover:bg-white rounded-full">
+                            <img class="w-[48px] h-[48px]" src="img/Pizza.png" alt="pizza">
+                        </div>
+                        
+                        <div class="text-h4 text-black font-bold text-center group-hover:text-white">
+                            Fast Food
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center flex-col rounded-[32px] group border-light border hover:border-none bg-white items-center gap-[48px] px-[81px] py-[96px] transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/70 hover:scale-105 ease-in-out">
+                        <div class="w-[104px] h-[104px] flex justify-center items-center transition-colors bg-light group-hover:bg-white rounded-full">
+                            <img class="w-[48px] h-[48px]" src="img/Salad.png" alt="pizza">
+                        </div>
+                        
+                        <div class="text-h4 text-black font-bold text-center group-hover:text-white">
+                            Salad
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center flex-col rounded-[32px] group border-light border hover:border-none bg-white items-center gap-[48px] px-[81px] py-[96px] transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/70 hover:scale-105 ease-in-out">
+                        <div class="w-[104px] h-[104px] flex justify-center items-center transition-colors bg-light group-hover:bg-white rounded-full">
+                            <img class="w-[48px] h-[48px]" src="img/Noodles.png" alt="pizza">
+                        </div>
+                        
+                        <div class="text-h4 text-black font-bold text-center group-hover:text-white">
+                            Noodles
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center flex-col rounded-[32px] group border-light border hover:border-none bg-white items-center gap-[48px] px-[81px] py-[96px] transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/70 hover:scale-105 ease-in-out">
+                        <div class="w-[104px] h-[104px] flex justify-center items-center bg-light transition-colors group-hover:bg-white rounded-full">
+                            <img class="w-[48px] h-[48px]" src="img/Blue lagoon.png" alt="pizza">
+                        </div>
+                        
+                        <div class="text-h4 text-black font-bold text-center group-hover:text-white">
+                            Drinks
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <div class="w-full mx-auto flex justify-center items-center flex-row pt-[64px] lg:pt-[96px] px-4 md:px-0">
+            <!-- Hero Section -->
+            <section class="flex justify-between flex-row items-center w-full xl:w-[1183px]">
+
+            <div class="flex justify-center lg:justify-start w-full lg:w-[433px] flex-col gap-[38px]">
+
+                <div class="text-h3 text-black font-bold text-center lg:text-start">
+                    Order Your Best Food Any Time
+                </div>
+            <div class="flex justify-center items-center lg:justify-start lg:items-start">
+                <div class="text-body_copy text-gray text-center lg:text-start w-[396px]">
+                    Whether you’re a seasoned chef or a kitchen novice
+                    our user-friendly platform caters to all levels of
+                    expertise, ensuring everyone can savor the joy of
+                    creating delicious meals.
+                </div>
+            </div>    
+
+            <div class="flex justify-center items-center lg:justify-start lg:items-start">
+                <button onclick="window.location.href='product.html'" class="flex justify-between items-center flex-row gap-[10px] text-small_copy w-fit bg-primary font-bold rounded-full text-white px-[16px] py-[16px] lg:px-[32px] lg:py-[16px] group transition-all duration-200 hover:shadow-lg hover:shadow-primary/70 hover:scale-105 ease-in-out">
+                    ORDER NOW <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24 " class="hidden md:block"><path fill="currentColor" d="M4 11.25a.75.75 0 0 0 0 1.5h9.25V18a.75.75 0 0 0 1.28.53l6-6a.75.75 0 0 0 0-1.06l-6-6a.75.75 0 0 0-1.28.53v5.25z"/></svg>
+                </button>
+            </div>    
+            </div>
+
+            <div class="hidden lg:block">
+                <div class="relative xl:mr-[103px]">
+                    <img src="img/boy-chef.png" alt="boy">
+                </div>
+            </div>    
+
+            </section>
+
+        </div>
+
+        <div class="w-full mx-auto flex justify-center items-center px-4 md:px-0 flex-col pt-[64px] lg:pt-[96px]">
+             <!-- Hero Section -->
+        <section class="flex justify-evenly flex-wrap gap-[19px] md:gap-0 flex-row items-center w-full xl:w-[1183px]">
+                <div class="flex flex-col justify-center items-center gap-[19px] w-[274px]">
+                    <div class="relative">
+                        <img src="img/prepare.png" alt="prepare">
+                    </div>
+
+                    <div class="text-h4 font-bold text-center text-black w-fit">
+                        Prepare
+                    </div>
+
+                    <div class="w-full text-body_copy text-center text-gray">
+                        Restairants offer a variety of dining experience
+                    </div>
+                </div>
+
+            <div class="hidden xl:block">
+                <div class="flex justify-center mb-[100px]">
+                    <div class="border-dashed border-[10px] w-[120px] text-primary">
+                    </div>
+                </div>
+            </div>
+
+                <div class="flex flex-col justify-center items-center gap-[19px] w-[274px]">
+                    <div class="relative">
+                        <img src="img/packing.png" alt="packing">
+                    </div>
+
+                    <div class="text-h4 font-bold text-center text-black w-fit">
+                        Packing
+                    </div>
+
+                    <div class="w-full text-body_copy text-center text-gray">
+                        Restairants offer a variety of dining experience
+                    </div>
+                </div>
+
+            <div class="hidden xl:block">
+                <div class="flex justify-center mb-[100px]">
+                    <div class="border-dashed border-[10px] w-[120px] text-primary">
+                    </div>
+                </div>
+            </div>
+
+                <div class="flex flex-col justify-center items-center gap-[19px] w-[274px]">
+                    <div class="relative">
+                        <img src="img/deliver.png" alt="deliver">
+                    </div>
+
+                    <div class="text-h4 font-bold text-center text-black w-fit">
+                        Deliver
+                    </div>
+
+                    <div class="w-full text-body_copy text-center text-gray">
+                        Restairants offer a variety of dining experience
+                    </div>
+                </div>
+
+        </section>
+        </div>
+
+        <div class="w-full mx-auto flex justify-center items-center flex-row pt-[64px] lg:pt-[96px] px-4 md:px-0">
+            <!-- Hero Section -->
+            <section class="relative flex justify-between flex-col xl:flex-row items-center w-full xl:w-[1183px]">
+
+                <div class="relative">
+                    <img src="img/Group-customer-review.png" alt="customer">
+                </div>
+
+                <div class="block xl:hidden">
+                    <div class="w-full h-[64px] bg-light"></div>
+                </div>
+                
+            <div class="flex  justify-center md:justify-start w-full md:w-[587px] flex-col gap-[32px]">
+
+                <div class="text-h3 lg:text-h2 justify-center md:justify-start text-black font-bold text-center md:text-start leading-[50px]">
+                    Customer <br> Reviews
+                </div>
+
+                <div class="text-body_copy md:text-h4 lg:text-h3 text-black justify-center md:justify-start text-center md:text-start w-full">
+                    Overall, my visit to FoodBox exceeded all expectations.
+                    I highly recommended it to anyone looking for an extra ordinary culinary adventure.
+                </div>
+
+                    <div class="relative">
+                        <img src="img/star.png" alt=star">
+                    </div>
+
+                <div class="flex flex-row justify-start gap-[32px]">
+                    <div class="relative">
+                        <img src="img/person-1.png" alt=star">
+                    </div>
+                <div>
+
+                <div class="flex flex-col justify-start gap-[8px]">
+                    <div class=" text-body_copy lg:text-h4 text-black text-center">
+                        Samantha Smith
+                    </div>
+                    <div class="text-small_copy text-gray text-start">
+                        Food Lover
+                    </div>
+                </div>
+
+                </div>
+                </div>
+
+            </div>
+
+        
+            <div class="hidden xl:block absolute left-[45%] top-[10%]">
+                <img class="w-79 h-79 text-light" src="img/quotation-mark.png" alt="quotation-mark">
+            </div>
+        
+                    
+            </section>
+            
+        </div>
+
+    <div class="w-full mx-auto flex justify-center items-center flex-row  pt-[64px] lg:pt-[96px] px-4 xl:px-0">
+            <!-- Hero Section -->
+        <section class="relative flex justify-start h-[462px] rounded-[32px] bg-primary flex-row items-center w-full xl:w-[1183px]">
+
+            <div class="flex justify-start w-full xl:w-[293px] md:mx-[81px] md:my-[108px] flex-col gap-[64px]">
+
+                <div class="text-h3 md:text-h2 xl:text-h3 text-black font-bold text-center xl:text-start leading-[57.6px]">
+                    Download IOS &
+                    <br>
+                    Andriod App
+                </div>
+
+              <div class="flex flex-row justify-center gap-[25px] items-center xl:items-start xl:justify-start"> 
+                <div class="relative">
+                    <img src="img/playstore.png" alt="playstore">
+                </div>
+                <div class="relative">
+                    <img src="img/Applestore.png" alt="applestore">
+                </div>
+              </div> 
+
+            </div>
+
+                <div class=" hidden xl:block absolute -top-[11%] -right-[10%]">
+                    <img class="w-[852px] h-[510px]" src="img/phone-review.png" alt="phone">
+                </div>
+
+        </section>
+
+    </div>
+
+    <div class="w-full mx-auto flex justify-center items-center flex-row pt-[64px] lg:pt-[96px] px-4 xl:px-0">
+        <!-- Hero Section -->
+        <section class="relative flex justify-center items-center flex-col gap-[56px] w-full xl:w-[1183px]">
+
+         <div class="relative flex flex-wrap gap-12 lg:gap-0 justify-between flex-row w-full xl:w-[1183px]">
+            <div class=" w-[312px] flex flex-col justify-start gap-[42px]">
+                <div class="relative">
+                    <img src="img/Logo.svg" alt="logo">
+                </div>
+
+                <div class="text-body_copy text-black text-start">
+                    Your ultimate destination for all things food! Explore our extensive collection of mouthwatering recipes.</div>
+            </div>
+            
+                <ul class="no-underline flex flex-col list-none w-fit gap-[10px]">
+                    <li class="text-h4 text-black text-start">
+                        Menu 
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                        About
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                       Menu 
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                        Event
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                        Offer
+                    </li>
+                </ul>
+
+                <ul class="no-underline flex flex-col list-none w-fit gap-[10px]">
+                    <li class="text-h4 text-black text-start">
+                       Information
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                        Contact
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                       Orders & Returns 
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                        Videos
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                        Reservation
+                    </li>
+                </ul>
+
+                <ul class="no-underline flex flex-col list-none w-fit gap-[10px]">
+                    <li class="text-h4 text-black text-start">
+                       Address
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                        1234 Congressional, Quezon City
+                    </li>
+                    <li class="text-small_copy text-black text-start">
+                       Open till : 9:00am - 12:00pm
+                    </li>
+                </ul>
+        </div>   
+    <div class="flex flex-col justify-center mb-[40px] items-center gap-[23px]">
+        <ul class="flex flex-row justify-center gap-[20px] w-fit">
+            <li><img src="img/fb.png" alt="fb"></li>
+            <li><img src="img/instagram.png" alt="instagram"></li>
+            <li><img src="img/twitter.png" alt="twitter"></li>
+            <li><img src="img/tiktok.png" alt="tiktok"></li>
+        </ul>
+        <div class="flex justify-center">
+            <p class="text-black text-small_copy text-center">Copyright (c) sitename | All rights reserved</p>
+        </div>
+    </div>
+        </section>
+    </div>    
+    
+    <!-- script -->
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[100%]')
+        }
+    </script>
+ 
+    <script>
+        document.addEventListener('scroll', () => {
+         const header = document.querySelector('header');
+
+         if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+         } else {
+            header.classList.remove('scrolled');
+         }
+        });
+      </script>
+
+
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
